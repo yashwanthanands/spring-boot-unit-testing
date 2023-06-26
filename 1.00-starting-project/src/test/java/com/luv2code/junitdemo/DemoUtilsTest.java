@@ -1,9 +1,11 @@
 package com.luv2code.junitdemo;
 
+import org.junit.jupiter.api.AfterEach;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -11,10 +13,23 @@ import org.junit.jupiter.api.Test;
  */
 class DemoUtilsTest {
 
+    DemoUtils demoUtils;
+
+    @BeforeEach
+    void setUpBeforeEach() {
+        demoUtils = new DemoUtils();
+        System.out.println("@BeforeEach executes before the execution of each test method");
+    }
+
+    @AfterEach
+    void tearDownAfterEach() {
+        System.out.println("Running @After Each");
+    }
+
     @Test
     void addtestEqualsAndNotEquals() {
-        //setup
-        DemoUtils demoUtils = new DemoUtils();
+
+        System.out.println("Running test : addtestEqualsAndNotEquals");
 
         //execute
         int result=demoUtils.add(23,29);
@@ -26,14 +41,14 @@ class DemoUtilsTest {
 
     @Test
     void checkNullTestForNullAndNotNull() {
-        //setup
-        DemoUtils demoUtils = new DemoUtils();
 
-        //execute
+        System.out.println("Running test : checkNullTestForNullAndNotNull");
+
+        //setup
         String str1=null;
         String str2="Yash";
 
-        //assert
+        //execute and assert
         assertNull(demoUtils.checkNull(str1)," Object should be null");
         assertNotNull(demoUtils.checkNull(str2)," Object should not be null");
     }
