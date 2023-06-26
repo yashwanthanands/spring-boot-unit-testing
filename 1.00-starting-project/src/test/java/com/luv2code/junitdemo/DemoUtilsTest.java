@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
 /**
  * @author yashwanthanands
  */
-@DisplayNameGeneration(DisplayNameGenerator.Simple.class)
+@DisplayNameGeneration(DisplayNameGenerator.IndicativeSentences.class)
 class DemoUtilsTest {
 
     DemoUtils demoUtils;
