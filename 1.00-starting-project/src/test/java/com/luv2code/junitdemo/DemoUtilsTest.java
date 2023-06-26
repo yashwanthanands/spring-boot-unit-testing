@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -37,6 +38,7 @@ class DemoUtilsTest {
     }
 
     @Test
+    @DisplayName("Add Test -- Equals and Not Equals")
     void addtestEqualsAndNotEquals() {
 
         System.out.println("Running test : addtestEqualsAndNotEquals");
@@ -50,6 +52,7 @@ class DemoUtilsTest {
     }
 
     @Test
+    @DisplayName("Check Null Test -- Null and Not Null")
     void checkNullTestForNullAndNotNull() {
 
         System.out.println("Running test : checkNullTestForNullAndNotNull");
