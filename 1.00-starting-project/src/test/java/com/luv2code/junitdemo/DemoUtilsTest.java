@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
 /**
  * @author yashwanthanands
  */
-@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
+@DisplayNameGeneration(DisplayNameGenerator.Simple.class)
 class DemoUtilsTest {
 
     DemoUtils demoUtils;
