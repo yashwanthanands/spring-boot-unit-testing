@@ -5,7 +5,9 @@ import org.junit.jupiter.api.AfterEach;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNotSame;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -41,7 +43,7 @@ class DemoUtilsTest {
     }
 
     @Test
-   @DisplayName("Add Test -- Equals and Not Equals")
+    @DisplayName("Add Test -- Equals and Not Equals")
     void add_test_Equals_And_Not_Equals() {
 
         System.out.println("Running test : addtestEqualsAndNotEquals");
@@ -68,4 +70,19 @@ class DemoUtilsTest {
         assertNull(demoUtils.checkNull(str1)," Object should be null");
         assertNotNull(demoUtils.checkNull(str2)," Object should not be null");
     }
+
+    @Test
+    @DisplayName("Check SameNotSame Test -- Same and Not Same")
+    void check_SameNotSame_Test_For_Same_And_Not_Same() {
+
+        System.out.println("Running test : checkSameNotSameTestForSameAndNotSame");
+
+        //setup
+        String str1="yashdevelopment";
+
+        //execute and assert
+        assertSame(demoUtils.getAcademy(),demoUtils.getAcademyDuplicate()," Object should refer to the same");
+        assertNotSame(str1,demoUtils.getAcademy()," Object should not refer to the same");
+    }
+
 }
