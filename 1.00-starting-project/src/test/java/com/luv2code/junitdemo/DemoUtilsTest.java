@@ -3,11 +3,13 @@ package com.luv2code.junitdemo;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNotSame;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -85,4 +87,18 @@ class DemoUtilsTest {
         assertNotSame(str1,demoUtils.getAcademy()," Object should not refer to the same");
     }
 
+    @Test
+    @DisplayName("Check TrueOrFalse Test -- True or False")
+    void check_TrueOrFalse_Test_For_True_Or_False() {
+
+        System.out.println("Running test : checkTrueOrFalseTestForTrueOrFalse");
+
+        //setup
+        int a=10;
+        int b=20;
+
+        //execute and assert
+        assertTrue(demoUtils.isGreater(b,a)," This should return true");
+        assertFalse(demoUtils.isGreater(a,b)," This should return false");
+    }
 }
