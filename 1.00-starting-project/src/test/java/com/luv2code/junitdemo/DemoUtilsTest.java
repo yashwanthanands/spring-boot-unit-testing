@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertIterableEquals;
+import static org.junit.jupiter.api.Assertions.assertLinesMatch;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNotSame;
@@ -129,5 +130,18 @@ class DemoUtilsTest {
 
         //execute and assert
         assertIterableEquals(theList, demoUtils.getAcademyInList()," List should be equal");
+    }
+
+    @Test
+    @DisplayName("Check LinesMatch Test")
+    void check_LinesMatch_Test() {
+
+        System.out.println("Running test : checkIterableEqualsTest");
+
+        //setup
+        List<String> theList =List.of("luv","2","code");
+
+        //execute and assert
+        assertLinesMatch(theList, demoUtils.getAcademyInList()," Lines should be matched");
     }
 }
