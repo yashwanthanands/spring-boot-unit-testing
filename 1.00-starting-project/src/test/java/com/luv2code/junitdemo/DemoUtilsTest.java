@@ -2,6 +2,7 @@ package com.luv2code.junitdemo;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
@@ -100,5 +101,18 @@ class DemoUtilsTest {
         //execute and assert
         assertTrue(demoUtils.isGreater(b,a)," This should return true");
         assertFalse(demoUtils.isGreater(a,b)," This should return false");
+    }
+
+    @Test
+    @DisplayName("Check Array Equals Test")
+    void check_ArrayEquals_Test() {
+
+        System.out.println("Running test : checkArrayEqualsTest");
+
+        //setup
+        String[] stringArray = {"A","B","C"};
+
+        //execute and assert
+        assertArrayEquals(stringArray, demoUtils.getFirstThreeLettersOfAlphabet()," Array should be equal");
     }
 }
