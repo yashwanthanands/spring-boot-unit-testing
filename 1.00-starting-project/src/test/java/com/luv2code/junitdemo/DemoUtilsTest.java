@@ -4,6 +4,7 @@ import java.util.List;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertIterableEquals;
@@ -13,6 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNotSame;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -143,5 +145,16 @@ class DemoUtilsTest {
 
         //execute and assert
         assertLinesMatch(theList, demoUtils.getAcademyInList()," Lines should be matched");
+    }
+
+    @Test
+    @DisplayName("Check Throws And Does Not Throw Exception Test")
+    void check_Throws_And_Doesnot_Throw_Exception_Test() {
+
+        System.out.println("Running test : checkThrowsAndDoesNotThrowExceptionTest");
+
+        //execute and assert
+        assertThrows(Exception.class, () -> {demoUtils.throwException(-1);}, "Should throw an exception" );
+        assertDoesNotThrow(() -> {demoUtils.throwException(1);}, "Should throw an exception" );
     }
 }
