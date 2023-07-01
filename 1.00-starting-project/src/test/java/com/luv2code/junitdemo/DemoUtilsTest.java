@@ -1,5 +1,6 @@
 package com.luv2code.junitdemo;
 
+import java.time.Duration;
 import java.util.List;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -15,6 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertNotSame;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTimeoutPreemptively;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -156,5 +158,15 @@ class DemoUtilsTest {
         //execute and assert
         assertThrows(Exception.class, () -> {demoUtils.throwException(-1);}, "Should throw an exception" );
         assertDoesNotThrow(() -> {demoUtils.throwException(1);}, "Should throw an exception" );
+    }
+
+    @Test
+    @DisplayName("Check Timeout Test")
+    void check_Timeout_Test() {
+
+        System.out.println("Running test : checkTimeoutTest");
+
+        //execute and assert
+        assertTimeoutPreemptively(Duration.ofSeconds(3), () -> {demoUtils.checkTimeout();}, "Method should execute in 3 seconds" );
     }
 }
