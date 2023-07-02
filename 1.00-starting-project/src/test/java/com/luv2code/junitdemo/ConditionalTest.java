@@ -2,7 +2,9 @@ package com.luv2code.junitdemo;
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.EnabledOnJre;
 import org.junit.jupiter.api.condition.EnabledOnOs;
+import org.junit.jupiter.api.condition.JRE;
 import org.junit.jupiter.api.condition.OS;
 
 /**
@@ -37,6 +39,18 @@ public class ConditionalTest {
     @Test
     @EnabledOnOs(OS.LINUX)
     void testforLinuxOnly() {
+        // execute method and perform asserts
+    }
+
+    @Test
+    @EnabledOnJre(JRE.JAVA_17)
+    void testforOnlyJava17() {
+        // execute method and perform asserts
+    }
+
+    @Test
+    @EnabledOnJre(JRE.JAVA_13)
+    void testforOnlyJava13() {
         // execute method and perform asserts
     }
 }
