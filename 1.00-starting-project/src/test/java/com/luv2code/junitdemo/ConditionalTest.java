@@ -3,6 +3,8 @@ package com.luv2code.junitdemo;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.EnabledForJreRange;
+import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable;
+import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
 import org.junit.jupiter.api.condition.EnabledOnJre;
 import org.junit.jupiter.api.condition.EnabledOnOs;
 import org.junit.jupiter.api.condition.JRE;
@@ -64,6 +66,18 @@ public class ConditionalTest {
     @Test
     @EnabledForJreRange(min=JRE.JAVA_11)
     void testOnlyForJreRangeMin() {
+        // execute method and perform asserts
+    }
+
+    @Test
+    @EnabledIfEnvironmentVariable(named="YASHDEV_ENV",matches = "DEV")
+    void testOnlyForDevEnvironment() {
+        // execute method and perform asserts
+    }
+
+    @Test
+    @EnabledIfSystemProperty(named="YASHDEV_SYS_PROP",matches = "CI_CD_DEPLOY")
+    void testOnlyForSystemProperty() {
         // execute method and perform asserts
     }
 }
